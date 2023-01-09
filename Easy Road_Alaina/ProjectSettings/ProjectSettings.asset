@@ -520,7 +520,15 @@ PlayerSettings:
   webGLThreadsSupport: 0
   webGLDecompressionFallback: 0
   scriptingDefineSymbols:
-    1: EASYROADS3D_PRO
+    1: EASYROADS3D_PRO;BCG_RCC
+    4: BCG_RCC
+    7: BCG_RCC
+    13: BCG_RCC
+    14: BCG_RCC
+    19: BCG_RCC
+    21: BCG_RCC
+    25: BCG_RCC
+    27: BCG_RCC
   additionalCompilerArguments: {}
   platformArchitecture: {}
   scriptingBackend: {}
