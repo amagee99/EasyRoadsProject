@@ -27,19 +27,25 @@ using UnityEngine;
 using System.Collections;
 using EasyRoads3Dv3;
 
-public class runtimeScript : MonoBehaviour {
 
+public class runtimeScript : MonoBehaviour {
+	
 
 	public ERRoadNetwork roadNetwork;
 	
 	public ERRoad road;
 	
-	public GameObject go;
+	//public GameObject go;
 	public int currentElement = 0;
 	public float distance = 0;
 	public float speed = 5f;
 
-
+	public Vector3 point1;
+	public Vector3 point2;
+	public Vector3 point3;
+	public Vector3 point4;
+	//mycode
+	 [SerializeField] [Range(1,5)] public int pointsNum;
 
 
 
@@ -74,22 +80,78 @@ public class runtimeScript : MonoBehaviour {
 //		Debug.Log(roadType.roadMaterial);
 
         // create a new road
-		Vector3[] markers = new Vector3[4];
-		markers[0] = new Vector3(200, 5, 200);
+		//Vector3[] markers = new Vector3[4];
+		/*markers[0] = new Vector3(200, 5, 200);
 		markers[1] = new Vector3(250, 5, 200);
 		markers[2] = new Vector3(250, 5, 250);
-		markers[3] = new Vector3(300, 5, 250);
+		markers[3] = new Vector3(300, 5, 250);*/
+		//myCode
+		/*markers[0] = point1;
+		markers[1] = point2;
+		markers[2] = point3;
+		markers[3] = point4;*/
+		//mycode
+		/*int zVal = 0;
 
+		Vector3[] markers = new Vector3[pointsNum];
+		for (int i = 0; i < pointsNum; i++)
+		{
+			markers[i] = new Vector3(500, 5, zVal);
+			zVal = zVal + 250;
+		}
 		road = roadNetwork.CreateRoad("road 1", roadType, markers);
+*/	
+		
+		road = roadNetwork.CreateRoad("road 1", roadType);//, markers);
+		int zVal = 0;
+		int zValCurve = 125;
+		int xValCurve = 470;
+		
+		for (int i = 0; i < pointsNum; i++)
+		{
+			road.AddMarker(new Vector3(500, 5, zVal));
+			road.AddMarker(new Vector3(xValCurve, 5, zValCurve));
+			zVal = zVal + 250;
+			zValCurve = zValCurve + 250;
+			if (i % 2 == 0){
+				xValCurve = xValCurve + 60;
+			}
+			else{
+				xValCurve = xValCurve - 60;
+			}
+		}
+	
+
+		road = roadNetwork.CreateRoad("road 2", roadType);//, markers);
+		int zVal2 = 0;
+		int zValCurve2 = 125;
+		int xValCurve2 = 500;
+		
+		for (int i = 0; i < pointsNum; i++)
+		{
+			road.AddMarker(new Vector3(530, 5, zVal2));
+			road.AddMarker(new Vector3(xValCurve2, 5, zValCurve2));
+			zVal2 = zVal2 + 250;
+			zValCurve2 = zValCurve2 + 250;
+			if (i % 2 == 0){
+				xValCurve2 = xValCurve2 + 60;
+			}
+			else{
+				xValCurve2 = xValCurve2 - 60;
+			}
+		}
+
+
+		//road.InsertMarker(new Vector3(275, 5, 125));
 
      // road.SetResolution(float value):void;
 
 
 		// Add Marker: ERRoad.AddMarker(Vector3);
-		road.AddMarker(new Vector3(300, 5, 300));
+		//road.AddMarker(new Vector3(500, 5, 500));
 
 		// Add Marker: ERRoad.InsertMarker(Vector3);
-		road.InsertMarker(new Vector3(275, 5, 235));
+		//road.InsertMarker(new Vector3(275, 5, 235));
     //  road.InsertMarkerAt(Vector3 pos, int index): void;
 
 		// Delete Marker: ERRoad.DeleteMarker(int index);
@@ -161,7 +223,7 @@ public class runtimeScript : MonoBehaviour {
    //   road.GetLength() : float;
 
 		// create dummy object
-		go = GameObject.CreatePrimitive(PrimitiveType.Cube);
+		//go = GameObject.CreatePrimitive(PrimitiveType.Cube);
 
 
 	}
@@ -179,10 +241,10 @@ public class runtimeScript : MonoBehaviour {
 			Vector3 v = road.GetPosition(distance, ref currentElement);
 			v.y += 1;
 		
-			go.transform.position = v;
-			go.transform.forward = road.GetLookatSmooth(distance, currentElement);;
+			//go.transform.position = v;
+			//go.transform.forward = road.GetLookatSmooth(distance, currentElement);;
 			//mycode
-			//road.SideObjectSetActive(SideObject3, true);
+			//roadNetwork.CreateRoad("myRoad", new Vector3(0, 0, 0));
 			
 		}
 
