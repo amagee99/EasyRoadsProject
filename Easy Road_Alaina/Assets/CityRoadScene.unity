@@ -609,7 +609,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!81 &132790166
 AudioListener:
   m_ObjectHideFlags: 0
@@ -4538,6 +4538,52 @@ MonoBehaviour:
   perpDirRotated: {x: -0.9997754, y: 0, z: -0.021191303}
   markerStartUVY: 0.32785034
   customPoints: []
+--- !u!1 &1482748217
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1482748219}
+  - component: {fileID: 1482748218}
+  m_Layer: 0
+  m_Name: ObjectSpawner
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1482748218
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1482748217}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dc5228ed8bd2c5049877293f2857de1c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  nailPrefab: {fileID: 6438418335393132503, guid: 7ead007d2b2775644894c7a78ca23fa5, type: 3}
+  roadNetwork: {fileID: 0}
+  spawnObjects: 0
+--- !u!4 &1482748219
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1482748217}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 533.792, y: 247.33954, z: 671.66797}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 7
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1520126540
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -35020,7 +35066,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &2014681737
 Transform:
   m_ObjectHideFlags: 0
@@ -35230,7 +35276,7 @@ MonoBehaviour:
   point2: {x: 500, y: 5, z: 250}
   point3: {x: 500, y: 5, z: 500}
   point4: {x: 500, y: 5, z: 750}
-  pointsNum: 3
+  pointsNum: 9
 --- !u!1 &2110160010
 GameObject:
   m_ObjectHideFlags: 0
