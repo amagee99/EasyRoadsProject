@@ -45,7 +45,7 @@ public class runtimeScript : MonoBehaviour {
 	public Vector3 point3;
 	public Vector3 point4;
 	//mycode
-	 [SerializeField] [Range(1,5)] public int pointsNum;
+	 [SerializeField] [Range(1,10)] public int pointsNum;
 
 
 
@@ -109,8 +109,8 @@ public class runtimeScript : MonoBehaviour {
 		
 		for (int i = 0; i < pointsNum; i++)
 		{
-			road.AddMarker(new Vector3(500, 5, zVal));
-			road.AddMarker(new Vector3(xValCurve, 5, zValCurve));
+			road.AddMarker(new Vector3(500, 0.5f, zVal));
+			road.AddMarker(new Vector3(xValCurve, 0.5f, zValCurve));
 			zVal = zVal + 250;
 			zValCurve = zValCurve + 250;
 			if (i % 2 == 0){
@@ -129,8 +129,8 @@ public class runtimeScript : MonoBehaviour {
 		
 		for (int i = 0; i < pointsNum; i++)
 		{
-			road.AddMarker(new Vector3(530, 5, zVal2));
-			road.AddMarker(new Vector3(xValCurve2, 5, zValCurve2));
+			road.AddMarker(new Vector3(530, 0.5f, zVal2));
+			road.AddMarker(new Vector3(xValCurve2, 0.5f, zValCurve2));
 			zVal2 = zVal2 + 250;
 			zValCurve2 = zValCurve2 + 250;
 			if (i % 2 == 0){
