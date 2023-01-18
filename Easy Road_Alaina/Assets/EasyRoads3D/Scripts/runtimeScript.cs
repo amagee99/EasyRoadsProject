@@ -74,6 +74,7 @@ public class runtimeScript : MonoBehaviour {
         // optional
         roadType.layer = 1;
         roadType.tag = "Untagged";
+				
    //   roadType.hasMeshCollider = false; // default is true
 
 //		roadType = roadNetwork.GetRoadTypeByName("Train Rail");
@@ -125,11 +126,11 @@ public class runtimeScript : MonoBehaviour {
 		road = roadNetwork.CreateRoad("road 2", roadType);//, markers);
 		int zVal2 = 0;
 		int zValCurve2 = 125;
-		int xValCurve2 = 500;
+		int xValCurve2 = 480;
 		
 		for (int i = 0; i < pointsNum; i++)
 		{
-			road.AddMarker(new Vector3(530, 0.5f, zVal2));
+			road.AddMarker(new Vector3(510, 0.5f, zVal2));
 			road.AddMarker(new Vector3(xValCurve2, 0.5f, zValCurve2));
 			zVal2 = zVal2 + 250;
 			zValCurve2 = zValCurve2 + 250;
