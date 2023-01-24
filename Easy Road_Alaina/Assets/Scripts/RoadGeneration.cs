@@ -45,10 +45,14 @@ public class RoadGeneration : MonoBehaviour {
 	public Vector3 point3;
 	public Vector3 point4;
 	//mycode
+	//public GameObject checkpointStraight;
 	 [SerializeField] [Range(1,10)] public int pointsNum;
 
 	public Vector3[] straightRoadMarkers;
+	public Vector3[] straightRoadMarkers2;
 	public Vector3[] curvedRoadMarkers;
+	public Vector3[] curvedRoadMarkers2;
+	
 	void Start () {
 	
 		Debug.Log("Please read the comments at the top of the runtime script (/Assets/EasyRoads3D/Scripts/runtimeScript) before using the runtime API!");
@@ -116,7 +120,9 @@ public class RoadGeneration : MonoBehaviour {
 		int xValCurve = 470;
 		
 		straightRoadMarkers = new Vector3[pointsNum * 2];
-		curvedRoadMarkers = new Vector3[pointsNum * 2];
+		curvedRoadMarkers = new Vector3[pointsNum * 3];
+		
+	
 		int j = 0;
 		int k = 0;
 		for (int i = 0; i < pointsNum; i++)
@@ -124,11 +130,15 @@ public class RoadGeneration : MonoBehaviour {
 			
 			road.AddMarker(new Vector3(500, 0.5f, zVal));//500
 			straightRoadMarkers[j] = new Vector3(500, 0.5f, zVal);
+			
+			curvedRoadMarkers[k] = new Vector3(500, 0.5f, zVal);
+			
 			zVal = zVal + 125;
 			road.AddMarker(new Vector3(500, 0.5f, zVal));
 			++j;
 			straightRoadMarkers[j] = new Vector3(500, 0.5f, zVal);
 			curvedRoadMarkers[k] = new Vector3(500, 0.5f, zVal);
+			
 			zVal = zVal + 125;
 			++j;
 			++k;
@@ -144,9 +154,12 @@ public class RoadGeneration : MonoBehaviour {
 			}
 		}
 		
-
-
-//road2
+	//road 2
+		straightRoadMarkers2 = new Vector3[pointsNum * 2];
+		curvedRoadMarkers2 = new Vector3[pointsNum * 3];
+		int j2 = 0;
+		int k2 = 0;
+		
 
 		road = roadNetwork.CreateRoad("road 2", roadType2);//, markers);
 		int zVal2 = 0;
@@ -156,10 +169,21 @@ public class RoadGeneration : MonoBehaviour {
 		for (int i = 0; i < pointsNum; i++)
 		{
 			road.AddMarker(new Vector3(530, 0.5f, zVal2));
+			straightRoadMarkers2[j2] = new Vector3(530, 0.5f, zVal2);
+			curvedRoadMarkers2[k2] = new Vector3(530, 0.5f, zVal2);
 			zVal2 = zVal2 + 125;
+
 			road.AddMarker(new Vector3(530, 0.5f, zVal2));
+			++j2;
+			straightRoadMarkers2[j2] = new Vector3(530, 0.5f, zVal2);
+			curvedRoadMarkers2[k2] = new Vector3(530, 0.5f, zVal2);
 			zVal2 = zVal2 + 125;
+
+			++j2;
+			++k2;
 			road.AddMarker(new Vector3(xValCurve2, 0.5f, zVal2));
+			curvedRoadMarkers2[k2] = new Vector3(xValCurve2, 0.5f, zVal2);
+			++k2;
 			zVal2 = zVal2 + 125;
 			
 			if (i % 2 == 0){
