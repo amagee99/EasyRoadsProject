@@ -21,11 +21,11 @@ public class WindridgeCitySpawner : MonoBehaviour
     {
         if (isCreatedTunnelL == false)
         {
-           /* for (int i = 0; i < tunnelLeftTransforms.Length; i = i + interval)
+            for (int i = 0; i < tunnelLeftTransforms.Length; i = i + interval)
             {
                 Instantiate(puddle, tunnelLeftTransforms[i].position, Quaternion.identity);
             }
-            isCreatedTunnelL = true;*/
+            isCreatedTunnelL = true;
         }
     }
 }
