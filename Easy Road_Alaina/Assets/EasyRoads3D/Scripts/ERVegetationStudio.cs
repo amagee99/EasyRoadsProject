@@ -29,11 +29,11 @@ public class ERVegetationStudio : ScriptableObject {
 			vegetationMaskLine = go.AddComponent<AwesomeTechnologies.VegetationMaskLine>();
 		}
 
-		vegetationMaskLine.AdditionalGrassPerimiter = vegetationMaskLine.AdditionalGrassPerimiterMax = grassPerimeter; 
-		vegetationMaskLine.AdditionalPlantPerimiter = vegetationMaskLine.AdditionalPlantPerimiterMax = plantPerimeter; 
-		vegetationMaskLine.AdditionalTreePerimiter = vegetationMaskLine.AdditionalTreePerimiterMax = treePerimeter;
-		vegetationMaskLine.AdditionalObjectPerimiter = vegetationMaskLine.AdditionalObjectPerimiterMax = objectPerimeter;
-		vegetationMaskLine.AdditionalLargeObjectPerimiter  = vegetationMaskLine.AdditionalLargeObjectPerimiterMax = largeObjectPerimeter;
+		vegetationMaskLine.AdditionalGrassPerimiter = grassPerimeter; 
+		vegetationMaskLine.AdditionalPlantPerimiter = plantPerimeter; 
+		vegetationMaskLine.AdditionalTreePerimiter = treePerimeter;
+		vegetationMaskLine.AdditionalObjectPerimiter = objectPerimeter;
+		vegetationMaskLine.AdditionalLargeObjectPerimiter = largeObjectPerimeter;
 		#endif
 	}
 
@@ -46,11 +46,11 @@ public class ERVegetationStudio : ScriptableObject {
 		{
 			vegetationMaskLine = go.AddComponent<AwesomeTechnologies.VegetationMaskLine>();
 		}
-		vegetationMaskLine.AdditionalGrassPerimiter = vegetationMaskLine.AdditionalGrassPerimiterMax = grassPerimeter; 
-		vegetationMaskLine.AdditionalPlantPerimiter = vegetationMaskLine.AdditionalPlantPerimiterMax = plantPerimeter; 
-		vegetationMaskLine.AdditionalTreePerimiter = vegetationMaskLine.AdditionalTreePerimiterMax = treePerimeter;
-		vegetationMaskLine.AdditionalObjectPerimiter = vegetationMaskLine.AdditionalObjectPerimiterMax = objectPerimeter;
-		vegetationMaskLine.AdditionalLargeObjectPerimiter  = vegetationMaskLine.AdditionalLargeObjectPerimiterMax = largeObjectPerimeter;
+		vegetationMaskLine.AdditionalGrassPerimiter = grassPerimeter; 
+		vegetationMaskLine.AdditionalPlantPerimiter = plantPerimeter; 
+		vegetationMaskLine.AdditionalTreePerimiter = treePerimeter;
+		vegetationMaskLine.AdditionalObjectPerimiter = objectPerimeter;
+		vegetationMaskLine.AdditionalLargeObjectPerimiter = largeObjectPerimeter;
 
 		vegetationMaskLine.ClearNodes();
 
