@@ -30,6 +30,7 @@ public class RacetrackObjectSpawner : MonoBehaviour
     public Transform[] straightTransformsInner;
     public Transform[] rightTransformsInner;
     public Transform[] leftTransformsInner;
+    
 
     public int intervalTime;
     
@@ -89,29 +90,9 @@ public class RacetrackObjectSpawner : MonoBehaviour
             ++randNum;
         }
         Debug.Log(randNum);
-        float xRange = straightTransforms[randNum + 1].position.x - straightTransforms[randNum].position.x;
-        float yRange = straightTransforms[randNum + 1].position.y - straightTransforms[randNum].position.y;
-        float zRange = straightTransforms[randNum + 1].position.z - straightTransforms[randNum].position.z;
-
-        Vector3 spawnPoint = new Vector3(straightTransforms[randNum].position.x + (xRange * UnityEngine.Random.value), straightTransforms[randNum].position.y + (yRange * UnityEngine.Random.value), straightTransforms[randNum].position.z + (zRange * UnityEngine.Random.value));
-
-        Instantiate(puddle, spawnPoint, Quaternion.identity);
-        isCreated = true;
-
-    }
-    private void spawnRightCurve()
-    {
-        int randNum = Random.Range(0, rightTransforms.Length - 1);
-        if (randNum == rightTransforms.Length - 1){
-            --randNum;
-        }
         
-        Debug.Log(randNum);
-        float xRange = rightTransforms[randNum + 1].position.x - rightTransforms[randNum].position.x;
-        float yRange = rightTransforms[randNum + 1].position.y - rightTransforms[randNum].position.y;
-        float zRange = rightTransforms[randNum + 1].position.z - rightTransforms[randNum].position.z;
 
-        Vector3 spawnPoint = new Vector3(rightTransforms[randNum].position.x + (xRange * UnityEngine.Random.value), rightTransforms[randNum].position.y + (yRange * UnityEngine.Random.value), rightTransforms[randNum].position.z + (zRange * UnityEngine.Random.value));
+        Vector3 spawnPoint = straightTransforms[randNum].position;
 
         Instantiate(puddle, spawnPoint, Quaternion.identity);
         isCreated = true;
@@ -119,42 +100,35 @@ public class RacetrackObjectSpawner : MonoBehaviour
     }
     private void spawnLeftCurve()
     {
+        int randNum = Random.Range(0, rightTransforms.Length - 1);
+        if (randNum == rightTransforms.Length - 1){
+            --randNum;
+        }
+        
+        Debug.Log(randNum);
+       
+        Vector3 spawnPoint = rightTransforms[randNum].position;
+
+        Instantiate(puddle, spawnPoint, Quaternion.identity);
+        isCreated = true;
+
+    }
+    private void spawnRightCurve()
+    {
         int randNum = Random.Range(0, leftTransforms.Length - 1);
         if (randNum == leftTransforms.Length - 1){
             --randNum;
         }
         
         Debug.Log(randNum);
-        float xRange = leftTransforms[randNum + 1].position.x - leftTransforms[randNum].position.x;
-        float yRange = leftTransforms[randNum + 1].position.y - leftTransforms[randNum].position.y;
-        float zRange = leftTransforms[randNum + 1].position.z - leftTransforms[randNum].position.z;
+        
 
-        Vector3 spawnPoint = new Vector3(leftTransforms[randNum].position.x + (xRange * UnityEngine.Random.value), leftTransforms[randNum].position.y + (yRange * UnityEngine.Random.value), leftTransforms[randNum].position.z + (zRange * UnityEngine.Random.value));
-
+        Vector3 spawnPoint = leftTransforms[randNum].position;
         Instantiate(puddle, spawnPoint, Quaternion.identity);
         isCreated = true;
 
     }
-    private void spawnStraightRoadInner()
-    {
-        int randNum = Random.Range(0, straightTransformsInner.Length - 1);
-        if (randNum == straightTransformsInner.Length - 1 && randNum % 2 != 0){
-            --randNum;
-        }
-        else if (randNum % 2 != 0){
-            ++randNum;
-        }
-        Debug.Log(randNum);
-        float xRange = straightTransformsInner[randNum + 1].position.x - straightTransformsInner[randNum].position.x;
-        float yRange = straightTransformsInner[randNum + 1].position.y - straightTransformsInner[randNum].position.y;
-        float zRange = straightTransformsInner[randNum + 1].position.z - straightTransformsInner[randNum].position.z;
-
-        Vector3 spawnPoint = new Vector3(straightTransformsInner[randNum].position.x + (xRange * UnityEngine.Random.value), straightTransformsInner[randNum].position.y + (yRange * UnityEngine.Random.value), straightTransformsInner[randNum].position.z + (zRange * UnityEngine.Random.value));
-
-        Instantiate(puddle, spawnPoint, Quaternion.identity);
-        isCreated = true;
-
-    }
+ 
     private void spawnRightCurveInner()
     {
         int randNum = Random.Range(0, rightTransformsInner.Length - 1);
@@ -163,17 +137,48 @@ public class RacetrackObjectSpawner : MonoBehaviour
         }
         
         Debug.Log(randNum);
-        float xRange = rightTransformsInner[randNum + 1].position.x - rightTransformsInner[randNum].position.x;
-        float yRange = rightTransformsInner[randNum + 1].position.y - rightTransformsInner[randNum].position.y;
-        float zRange = rightTransformsInner[randNum + 1].position.z - rightTransformsInner[randNum].position.z;
+        
 
-        Vector3 spawnPoint = new Vector3(rightTransformsInner[randNum].position.x + (xRange * UnityEngine.Random.value), rightTransformsInner[randNum].position.y + (yRange * UnityEngine.Random.value), rightTransformsInner[randNum].position.z + (zRange * UnityEngine.Random.value));
+        Vector3 spawnPoint = rightTransformsInner[randNum].position;
 
         Instantiate(puddle, spawnPoint, Quaternion.identity);
         isCreated = true;
 
     }
     private void spawnLeftCurveInner()
+    {
+        int randNum = Random.Range(0, leftTransformsInner.Length - 1);
+        if (randNum == leftTransformsInner.Length - 1){
+            --randNum;
+        }
+        
+        Debug.Log(randNum);
+       
+
+        Vector3 spawnPoint = leftTransformsInner[randNum].position;
+
+        Instantiate(puddle, spawnPoint, Quaternion.identity);
+        isCreated = true;
+
+    }
+    private void spawnStraightRoadInner()
+    {
+        int randNum = Random.Range(0, straightTransformsInner.Length - 1);
+        if (randNum == straightTransformsInner.Length - 1){
+            --randNum;
+        }
+        
+        Debug.Log(randNum);
+       
+
+        Vector3 spawnPoint = straightTransformsInner[randNum].position;
+
+        Instantiate(puddle, spawnPoint, Quaternion.identity);
+        isCreated = true;
+
+    }
+   /*
+   private void spawnLeftCurveInner()
     {
         int randNum = Random.Range(0, leftTransformsInner.Length - 1);
         if (randNum == leftTransformsInner.Length - 1){
@@ -190,6 +195,6 @@ public class RacetrackObjectSpawner : MonoBehaviour
         Instantiate(puddle, spawnPoint, Quaternion.identity);
         isCreated = true;
 
-    }
+    }*/
 
 }
