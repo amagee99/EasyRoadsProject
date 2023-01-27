@@ -52,6 +52,9 @@ public class RoadGeneration : MonoBehaviour {
 	public Vector3[] straightRoadMarkers2;
 	public Vector3[] curvedRoadMarkers;
 	public Vector3[] curvedRoadMarkers2;
+
+
+	public Vector3[] spawnPointsR1;
 	
 	void Start () {
 	
@@ -113,6 +116,8 @@ public class RoadGeneration : MonoBehaviour {
 		}
 		road = roadNetwork.CreateRoad("road 1", roadType, markers);
 */	
+	
+		
 		
 		road = roadNetwork.CreateRoad("road 1", roadType2);//, markers);
 		int zVal = 0;
@@ -120,7 +125,7 @@ public class RoadGeneration : MonoBehaviour {
 		int xValCurve = 470;
 		
 		straightRoadMarkers = new Vector3[pointsNum * 2];
-		curvedRoadMarkers = new Vector3[pointsNum * 3];
+		curvedRoadMarkers = new Vector3[pointsNum];
 		
 	
 		int j = 0;
@@ -131,20 +136,20 @@ public class RoadGeneration : MonoBehaviour {
 			road.AddMarker(new Vector3(500, 0.5f, zVal));//500
 			straightRoadMarkers[j] = new Vector3(500, 0.5f, zVal);
 			
-			curvedRoadMarkers[k] = new Vector3(500, 0.5f, zVal);
+			//curvedRoadMarkers[k] = new Vector3(500, 0.5f, zVal);
 			
 			zVal = zVal + 125;
 			road.AddMarker(new Vector3(500, 0.5f, zVal));
 			++j;
 			straightRoadMarkers[j] = new Vector3(500, 0.5f, zVal);
-			curvedRoadMarkers[k] = new Vector3(500, 0.5f, zVal);
+			//curvedRoadMarkers[k] = new Vector3(500, 0.5f, zVal);
 			
 			zVal = zVal + 125;
 			++j;
-			++k;
+			//++k;
 			road.AddMarker(new Vector3(xValCurve, 0.5f, zVal));
-			curvedRoadMarkers[k] = new Vector3(xValCurve, 0.5f, zVal);
-			++k;
+			curvedRoadMarkers[i] = new Vector3(xValCurve, 0.5f, zVal);
+			//++k;
 			zVal = zVal + 125;
 			if (i % 2 == 0){
 				xValCurve = xValCurve + 60;
@@ -156,7 +161,7 @@ public class RoadGeneration : MonoBehaviour {
 		
 	//road 2
 		straightRoadMarkers2 = new Vector3[pointsNum * 2];
-		curvedRoadMarkers2 = new Vector3[pointsNum * 3];
+		curvedRoadMarkers2 = new Vector3[pointsNum];
 		int j2 = 0;
 		int k2 = 0;
 		
@@ -170,19 +175,19 @@ public class RoadGeneration : MonoBehaviour {
 		{
 			road.AddMarker(new Vector3(530, 0.5f, zVal2));
 			straightRoadMarkers2[j2] = new Vector3(530, 0.5f, zVal2);
-			curvedRoadMarkers2[k2] = new Vector3(530, 0.5f, zVal2);
+			//curvedRoadMarkers2[k2] = new Vector3(530, 0.5f, zVal2);
 			zVal2 = zVal2 + 125;
 
 			road.AddMarker(new Vector3(530, 0.5f, zVal2));
 			++j2;
 			straightRoadMarkers2[j2] = new Vector3(530, 0.5f, zVal2);
-			curvedRoadMarkers2[k2] = new Vector3(530, 0.5f, zVal2);
+			//curvedRoadMarkers2[k2] = new Vector3(530, 0.5f, zVal2);
 			zVal2 = zVal2 + 125;
 
 			++j2;
 			++k2;
 			road.AddMarker(new Vector3(xValCurve2, 0.5f, zVal2));
-			curvedRoadMarkers2[k2] = new Vector3(xValCurve2, 0.5f, zVal2);
+			curvedRoadMarkers2[i] = new Vector3(xValCurve2, 0.5f, zVal2);
 			++k2;
 			zVal2 = zVal2 + 125;
 			

@@ -19,6 +19,8 @@ public class WindridgeCitySpawner : MonoBehaviour
     bool isCreatedCurvedSparse;
     public Transform[] CityRoadsStraightTransforms;
     bool isCreatedCityRoadStraight;
+    public Transform[] CityRoadsCurvedTransforms;
+    bool isCreatedCityRoadCurved;
 
     public bool spawnCurvedRoads;
     public bool spawnStraightRoads;
@@ -43,6 +45,7 @@ public class WindridgeCitySpawner : MonoBehaviour
             CurvedPathDenseSpawn();
             CurvedPathSmallSpawn();
             CurvedPathSparseSpawn();
+            CityRoadCurvedSpawn();
         }
         
     }
@@ -111,6 +114,17 @@ public class WindridgeCitySpawner : MonoBehaviour
                 Instantiate(puddle, CityRoadsStraightTransforms[i].position, Quaternion.identity);
             }
             isCreatedCityRoadStraight = true;
+        }
+    }
+    public void CityRoadCurvedSpawn()
+    {
+        if (isCreatedCityRoadCurved == false)
+        {
+            for (int i = 0; i < CityRoadsCurvedTransforms.Length; i = i + interval)
+            {
+                Instantiate(puddle, CityRoadsCurvedTransforms[i].position, Quaternion.identity);
+            }
+            isCreatedCityRoadCurved = true;
         }
     }
 
