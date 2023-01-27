@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class RoadObjectSpawner : MonoBehaviour
+public class CityRoadObjectSpawner : MonoBehaviour
 {
     public GameObject nailPrefab;
     public GameObject roadNetwork;
@@ -18,12 +18,13 @@ public class RoadObjectSpawner : MonoBehaviour
     public bool isCreatedStraight;
     public bool isCreatedStraightR2;
     public bool isCreatedCurved;
-    public bool isCreatedRightCurved;
+    public bool isCreatedCurvedR2;
+    
     public bool inputStraight;
     public bool inputCurved;
 
     public int numStraightObjects;
-    public int numRightObjects;
+    public int numCurvedObjects;
     void Start(){
         //spawnStraightRoads = false;
        // spawnCurvedRoads = false;
@@ -51,7 +52,7 @@ public class RoadObjectSpawner : MonoBehaviour
         }
         if (isCreatedCurved == false)
         {
-            for (int i = 0; i < numRightObjects; i++)
+            for (int i = 0; i < numCurvedObjects; i++)
             {
                 spawnNailsCurved();
             }
@@ -65,30 +66,18 @@ public class RoadObjectSpawner : MonoBehaviour
             }
             isCreatedStraightR2 = true;
         }
+        if (isCreatedCurvedR2 == false)
+        {
+            for (int i = 0; i < numCurvedObjects; i++)
+            {
+                spawnNailsCurved();
+            }
+            isCreatedCurvedR2 = true;
+        }
 
-        /*
-        if (time.seconds == startSpawn){
-            if (inputStraight)
-                spawnStraightRoads = true;
-            if (inputCurved)
-                spawnCurvedRoads = true;
-        }
-        else{
-            spawnStraightRoads = false;
-            spawnCurvedRoads = false;
-        }
-        
-        if (spawnStraightRoads && isCreatedStraight == false)
-        {
-            spawnNailsStraight();
-        }
-        if (spawnCurvedRoads && isCreatedCurved == false)
-        {
-            spawnNailsCurved();
-        }
-        */
+
     }
-    
+    /*
     public void spawnNailsStraight()
     {
        
@@ -161,34 +150,32 @@ public class RoadObjectSpawner : MonoBehaviour
             
         isCreatedCurved = true;
  
-    }
-    /*public void spawnNailsCurvedRight()
-    {
-       
-        int randNum = Random.Range(0, roadGeneration.pointsNum);
-        if (randNum == roadGeneration.pointsNum && (randNum + 1) % 3 == 0){
-            --randNum;
-        }
-        else if ((randNum + 1) % 3 == 0){
-            ++randNum;
-        }
-       Debug.Log(randNum);
-        Vector3 currPosition2 = roadGeneration.rightCurvedRoadMarkers[randNum];
-        Vector3 nextPosition2 = roadGeneration.rightCurvedRoadMarkers[randNum + 1];
+    }*/
 
-        float xRange = roadGeneration.rightCurvedRoadMarkers[randNum + 1].x - roadGeneration.rightCurvedRoadMarkers[randNum].x;
-        float zRange = roadGeneration.rightCurvedRoadMarkers[randNum + 1].z - roadGeneration.rightCurvedRoadMarkers[randNum].z;
-        Vector3 spawnPosition = new Vector3(Random.Range(nextPosition2.x, currPosition2.x), 5, Random.Range(currPosition2.z, nextPosition2.z));
-        
-        // Vector3 spawnPosition = new Vector3(roadGeneration.curvedRoadMarkers[randNum3].x + (xRange * UnityEngine.Random.value), 5, roadGeneration.curvedRoadMarkers[randNum3].z + (zRange * UnityEngine.Random.value));
-        int i = 0;
-        
+    public void spawnNailsStraight()
+    {
+        int randNum = Random.Range(0, roadGeneration.straightRoadMarkers.Length - 1);
+        Vector3 spawnPosition = roadGeneration.straightRoadMarkers[randNum];
         Instantiate(nailPrefab, spawnPosition, Quaternion.identity);
-            
-        isCreatedRightCurved = true;
- 
     }
-*/
+    public void spawnNailsCurved()
+    {
+        int randNum = Random.Range(0, roadGeneration.curvedRoadMarkers.Length - 1);
+        Vector3 spawnPosition = roadGeneration.curvedRoadMarkers[randNum];
+        Instantiate(nailPrefab, spawnPosition, Quaternion.identity);
+    }
+    public void spawnNailsStraightR2()
+    {
+        int randNum = Random.Range(0, roadGeneration.straightRoadMarkers2.Length - 1);
+        Vector3 spawnPosition = roadGeneration.straightRoadMarkers2[randNum];
+        Instantiate(nailPrefab, spawnPosition, Quaternion.identity);
+    }
+    public void spawnNailsCurvedR2()
+    {
+        int randNum = Random.Range(0, roadGeneration.curvedRoadMarkers2.Length - 1);
+        Vector3 spawnPosition = roadGeneration.curvedRoadMarkers2[randNum];
+        Instantiate(nailPrefab, spawnPosition, Quaternion.identity);
+    }
    
 
     
